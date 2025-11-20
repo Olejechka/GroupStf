@@ -38,3 +38,16 @@ class Triangle(Shape):
     def area(self):
         s = self.perimeter() / 2
         return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+
+class Square(Shape):
+    def __init__(self, side):
+        if side <= 0:
+            raise ValueError("Сторона квадрата должна быть положительной.")
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+    def perimeter(self):
+        return 4 * self.side
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
