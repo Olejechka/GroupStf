@@ -17,13 +17,12 @@
 
 ## Пример использования
 ```python
-from shapes import Circle, Triangle, Square
 
-c = Circle(5)
+c = Circle(3)
 print(f"Круг: площадь = {c.area():.2f}, периметр = {c.perimeter():.2f}")
 
-t = Triangle(3, 4, 5)
+t = Triangle(6, 6, 6)
 print(f"Треугольник: площадь = {t.area():.2f}, периметр = {t.perimeter():.2f}")
 
-s = Square(6)
+s = Square(12)
 print(f"Квадрат: площадь = {s.area():.2f}, периметр = {s.perimeter():.2f}")
