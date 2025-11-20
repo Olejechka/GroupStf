@@ -51,3 +51,14 @@ class Square(Shape):
     def perimeter(self):
         return 4 * self.side
         return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
+
+
+if __name__ == "__main__":
+    circle = Circle(5)
+    print(f"Круг: площадь = {circle.area():.2f}, периметр = {circle.perimeter():.2f}")
+
+    triangle = Triangle(3, 4, 5)
+    print(f"Треугольник: площадь = {triangle.area():.2f}, периметр = {triangle.perimeter():.2f}")
+
+    square = Square(6)
+    print(f"Квадрат: площадь = {square.area():.2f}, периметр = {square.perimeter():.2f}")
