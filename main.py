@@ -50,3 +50,4 @@ class Square(Shape):
 
     def perimeter(self):
         return 4 * self.side
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
