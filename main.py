@@ -1,3 +1,4 @@
+import math
 from abc import ABC, abstractmethod
 
 
@@ -22,3 +23,18 @@ class Circle(Shape):
 
     def perimeter(self):
         return 2 * math.pi * self.radius
+
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        if a <= 0 or b <= 0 or c <= 0:
+            raise ValueError("Стороны треугольника должны быть положительными.")
+        if a + b <= c or a + c <= b or b + c <= a:
+            raise ValueError("Недопустимые длины сторон: не выполняется неравенство треугольника.")
+        self.a, self.b, self.c = a, b, c
+
+    def perimeter(self):
+        return self.a + self.b + self.c
+
+    def area(self):
+        s = self.perimeter() / 2
+        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
