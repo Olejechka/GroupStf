@@ -2,6 +2,8 @@ import math
 from abc import ABC, abstractmethod
 
 
+# Абстрактный базовый класс для всех геометрических фигур.
+# Определяет обязательные методы: площадь и периметр.
 class Shape(ABC):
     @abstractmethod
     def area(self) -> float:
@@ -12,6 +14,8 @@ class Shape(ABC):
         pass
 
 
+# Класс круга: определяется радиусом.
+# Реализует площадь (πr²) и периметр (длину окружности: 2πr).
 class Circle(Shape):
     def __init__(self, radius):
         if radius <= 0:
@@ -24,6 +28,10 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
+
+# Класс треугольника: задаётся тремя сторонами.
+# Проверяет корректность сторон через неравенство треугольника.
+# Площадь вычисляется по формуле Герона.
 class Triangle(Shape):
     def __init__(self, a, b, c):
         if a <= 0 or b <= 0 or c <= 0:
@@ -36,9 +44,12 @@ class Triangle(Shape):
         return self.a + self.b + self.c
 
     def area(self):
-        s = self.perimeter() / 2
+        s = self.perimeter() / 2  # Полупериметр
         return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
 
+
+# Класс квадрата: определяется длиной одной стороны.
+# Площадь = side², периметр = 4 * side.
 class Square(Shape):
     def __init__(self, side):
         if side <= 0:
@@ -50,15 +61,3 @@ class Square(Shape):
 
     def perimeter(self):
         return 4 * self.side
-        return math.sqrt(s * (s - self.a) * (s - self.b) * (s - self.c))
-
-
-if __name__ == "__main__":
-    circle = Circle(5)
-    print(f"Круг: площадь = {circle.area():.2f}, периметр = {circle.perimeter():.2f}")
-
-    triangle = Triangle(3, 4, 5)
-    print(f"Треугольник: площадь = {triangle.area():.2f}, периметр = {triangle.perimeter():.2f}")
-
-    square = Square(6)
-    print(f"Квадрат: площадь = {square.area():.2f}, периметр = {square.perimeter():.2f}")
